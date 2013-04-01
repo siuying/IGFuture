@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B0AF118DAF241B682B3FD31 /* libPods-IGFutureTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB946F1F5BE649168B67F178 /* libPods-IGFutureTests.a */; };
 		5468F34E1709F169006DDC10 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5468F34D1709F169006DDC10 /* UIKit.framework */; };
 		5468F3501709F169006DDC10 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5468F34F1709F169006DDC10 /* Foundation.framework */; };
 		5468F3521709F169006DDC10 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5468F3511709F169006DDC10 /* CoreGraphics.framework */; };
@@ -22,7 +23,8 @@
 		5468F3731709F16A006DDC10 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5468F34D1709F169006DDC10 /* UIKit.framework */; };
 		5468F3741709F16A006DDC10 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5468F34F1709F169006DDC10 /* Foundation.framework */; };
 		5468F37C1709F16A006DDC10 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5468F37A1709F16A006DDC10 /* InfoPlist.strings */; };
-		5468F37F1709F16A006DDC10 /* IGFutureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5468F37E1709F16A006DDC10 /* IGFutureTests.m */; };
+		5468F38B1709F189006DDC10 /* IGFuture.m in Sources */ = {isa = PBXBuildFile; fileRef = 5468F38A1709F189006DDC10 /* IGFuture.m */; };
+		5468F38D1709FB0D006DDC10 /* IGFutureSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5468F38C1709FB0D006DDC10 /* IGFutureSpec.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,8 +58,11 @@
 		5468F3711709F16A006DDC10 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		5468F3791709F16A006DDC10 /* IGFutureTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IGFutureTests-Info.plist"; sourceTree = "<group>"; };
 		5468F37B1709F16A006DDC10 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		5468F37D1709F16A006DDC10 /* IGFutureTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IGFutureTests.h; sourceTree = "<group>"; };
-		5468F37E1709F16A006DDC10 /* IGFutureTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IGFutureTests.m; sourceTree = "<group>"; };
+		5468F3891709F189006DDC10 /* IGFuture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IGFuture.h; path = Future/IGFuture.h; sourceTree = "<group>"; };
+		5468F38A1709F189006DDC10 /* IGFuture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IGFuture.m; path = Future/IGFuture.m; sourceTree = "<group>"; };
+		5468F38C1709FB0D006DDC10 /* IGFutureSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGFutureSpec.m; sourceTree = "<group>"; };
+		55EAAF130C4B483A8A63B773 /* Pods-IGFutureTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IGFutureTests.xcconfig"; path = "Pods/Pods-IGFutureTests.xcconfig"; sourceTree = SOURCE_ROOT; };
+		AB946F1F5BE649168B67F178 /* libPods-IGFutureTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IGFutureTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +83,7 @@
 				5468F3721709F16A006DDC10 /* SenTestingKit.framework in Frameworks */,
 				5468F3731709F16A006DDC10 /* UIKit.framework in Frameworks */,
 				5468F3741709F16A006DDC10 /* Foundation.framework in Frameworks */,
+				2B0AF118DAF241B682B3FD31 /* libPods-IGFutureTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +97,7 @@
 				5468F3771709F16A006DDC10 /* IGFutureTests */,
 				5468F34C1709F169006DDC10 /* Frameworks */,
 				5468F34B1709F169006DDC10 /* Products */,
+				55EAAF130C4B483A8A63B773 /* Pods-IGFutureTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,6 +117,7 @@
 				5468F34F1709F169006DDC10 /* Foundation.framework */,
 				5468F3511709F169006DDC10 /* CoreGraphics.framework */,
 				5468F3711709F16A006DDC10 /* SenTestingKit.framework */,
+				AB946F1F5BE649168B67F178 /* libPods-IGFutureTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -117,6 +125,7 @@
 		5468F3531709F169006DDC10 /* IGFuture */ = {
 			isa = PBXGroup;
 			children = (
+				5468F3881709F177006DDC10 /* Future */,
 				5468F35C1709F169006DDC10 /* IGAppDelegate.h */,
 				5468F35D1709F169006DDC10 /* IGAppDelegate.m */,
 				5468F3651709F169006DDC10 /* IGViewController.h */,
@@ -144,8 +153,7 @@
 		5468F3771709F16A006DDC10 /* IGFutureTests */ = {
 			isa = PBXGroup;
 			children = (
-				5468F37D1709F16A006DDC10 /* IGFutureTests.h */,
-				5468F37E1709F16A006DDC10 /* IGFutureTests.m */,
+				5468F38C1709FB0D006DDC10 /* IGFutureSpec.m */,
 				5468F3781709F16A006DDC10 /* Supporting Files */,
 			);
 			path = IGFutureTests;
@@ -158,6 +166,15 @@
 				5468F37A1709F16A006DDC10 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5468F3881709F177006DDC10 /* Future */ = {
+			isa = PBXGroup;
+			children = (
+				5468F3891709F189006DDC10 /* IGFuture.h */,
+				5468F38A1709F189006DDC10 /* IGFuture.m */,
+			);
+			name = Future;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +205,7 @@
 				5468F36C1709F16A006DDC10 /* Frameworks */,
 				5468F36D1709F16A006DDC10 /* Resources */,
 				5468F36E1709F16A006DDC10 /* ShellScript */,
+				A3588DEF88A2483D9B90DF35 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -264,6 +282,20 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
+		A3588DEF88A2483D9B90DF35 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-IGFutureTests-resources.sh\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -274,6 +306,7 @@
 				5468F35A1709F169006DDC10 /* main.m in Sources */,
 				5468F35E1709F169006DDC10 /* IGAppDelegate.m in Sources */,
 				5468F3671709F169006DDC10 /* IGViewController.m in Sources */,
+				5468F38B1709F189006DDC10 /* IGFuture.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,7 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5468F37F1709F16A006DDC10 /* IGFutureTests.m in Sources */,
+				5468F38D1709FB0D006DDC10 /* IGFutureSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +415,7 @@
 		5468F3831709F16A006DDC10 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IGFuture/IGFuture-Prefix.pch";
 				INFOPLIST_FILE = "IGFuture/IGFuture-Info.plist";
@@ -393,6 +427,7 @@
 		5468F3841709F16A006DDC10 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IGFuture/IGFuture-Prefix.pch";
 				INFOPLIST_FILE = "IGFuture/IGFuture-Info.plist";
@@ -403,11 +438,13 @@
 		};
 		5468F3861709F16A006DDC10 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55EAAF130C4B483A8A63B773 /* Pods-IGFutureTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/IGFuture.app/IGFuture";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IGFuture/IGFuture-Prefix.pch";
@@ -420,11 +457,13 @@
 		};
 		5468F3871709F16A006DDC10 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55EAAF130C4B483A8A63B773 /* Pods-IGFutureTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/IGFuture.app/IGFuture";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IGFuture/IGFuture-Prefix.pch";
@@ -454,6 +493,7 @@
 				5468F3841709F16A006DDC10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5468F3851709F16A006DDC10 /* Build configuration list for PBXNativeTarget "IGFutureTests" */ = {
 			isa = XCConfigurationList;
@@ -462,6 +502,7 @@
 				5468F3871709F16A006DDC10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
