@@ -27,3 +27,8 @@ expect([later timeIntervalSinceDate:now]).to.beCloseToWithin(1, 0.01);
 1. The future block is not called unless the value is needed. When it is needed (at ```[later timeIntervalSinceDate:now]```) it block and wait for the code for completion. If you want the 
 future running in background when called, use ```-initWithBackgroundingBlock:```.
 2. Note "later" which is a IGFuture object can be used as a NSDate (the returned value of the block).
+
+
+### Copyright
+
+Copyright (c) 2013 Francis Chong. This software is licensed under the MIT License. See LICENSE for details.
