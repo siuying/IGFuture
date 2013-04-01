@@ -12,7 +12,8 @@
 
 -(id) initWithBlock:(IGFutureBlock)futureBlock {
     if (self) {
-        _queue = dispatch_queue_create("hk.ignition.future", 0);
+        NSString* queueName = [NSString stringWithFormat:@"%@.%d", @"hk.ignition.future", [self hash]];
+        _queue = dispatch_queue_create([queueName UTF8String], 0);
         _group = dispatch_group_create();
         _futureBlock = futureBlock;
     }
