@@ -12,7 +12,7 @@ describe(@"IGFuture", ^{
             NSDate* later = (NSDate*) [[IGFuture alloc] initWithBlock:^id{
                 return [NSDate date];
             }];
-            expect([later timeIntervalSinceDate:now]).to.beCloseToWithin(0.0, 0.01);
+            expect([later timeIntervalSinceDate:now]).to.beCloseToWithin(0.0, 0.005);
         });
         
         it(@"should invoke only when needed", ^{
@@ -22,9 +22,9 @@ describe(@"IGFuture", ^{
                 return [NSDate date];
             }];
             NSDate* middle = [NSDate date];
-            expect([middle timeIntervalSinceDate:now]).to.beCloseToWithin(0, 0.001);
-            expect([later timeIntervalSinceDate:now]).to.beCloseToWithin(0.1, 0.001);
-            expect([later timeIntervalSinceDate:middle]).to.beCloseToWithin(0.1, 0.001);
+            expect([middle timeIntervalSinceDate:now]).to.beCloseToWithin(0, 0.005);
+            expect([later timeIntervalSinceDate:now]).to.beCloseToWithin(0.1, 0.005);
+            expect([later timeIntervalSinceDate:middle]).to.beCloseToWithin(0.1, 0.005);
         });
     });
 
@@ -40,9 +40,9 @@ describe(@"IGFuture", ^{
             [NSThread sleepForTimeInterval:0.1];
 
             NSDate* middle = [NSDate date];
-            expect([middle timeIntervalSinceDate:now]).to.beCloseToWithin(0.1, 0.001);
-            expect([later timeIntervalSinceDate:now]).to.beCloseToWithin(0.1, 0.001);
-            expect([later timeIntervalSinceDate:middle]).to.beCloseToWithin(0, 0.001);
+            expect([middle timeIntervalSinceDate:now]).to.beCloseToWithin(0.1, 0.005);
+            expect([later timeIntervalSinceDate:now]).to.beCloseToWithin(0.1, 0.005);
+            expect([later timeIntervalSinceDate:middle]).to.beCloseToWithin(0, 0.005);
         });
     });
 });
