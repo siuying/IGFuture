@@ -53,7 +53,7 @@ future.completionBlock = ^(NSArray* data) {
 In your ```Podfile```
 
 ```
-pod 'IGFuture', :podspec => 'https://raw.github.com/siuying/IGFuture/master/IGFuture.podspec'
+pod 'IGFuture', '~> 0.2.0'
 ```
 
 
