@@ -53,7 +53,7 @@ future.completionBlock = ^(NSArray* data) {
 In your ```Podfile```
 
 ```
-pod 'IGFuture', '~> 0.2.1'
+pod 'IGFuture', '~> 0.2.2'
 ```
 
 
