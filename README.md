@@ -24,9 +24,11 @@ NSDate* later = (NSDate*) [[IGFuture alloc] initWithBlock:^id{
 expect([later timeIntervalSinceDate:now]).to.beCloseToWithin(1, 0.01);
 ```
 
-1. The future block is not called unless the value is needed. When it is needed (at ```[later timeIntervalSinceDate:now]```) it block and wait for the code for completion. If you want the 
-future running in background when called, use ```-initWithBackgroundingBlock:```.
-2. Note "later" which is a IGFuture object can be used as a NSDate (the returned value of the block).
+1. The future block run immediately in background. When it is needed (at ```[later timeIntervalSinceDate:now]```) and the result is available, it returns immediately. If it is still running, it block and wait for completion. 
+
+2. If you want the future only calculate the results when it is needed, use ```-initWithLazyBlock:```.
+
+3. Note "later" which is a IGFuture object can be used as a NSDate (the returned value of the block).
 
 
 ### Copyright

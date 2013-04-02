@@ -11,18 +11,19 @@
 @implementation IGFuture
 
 -(id) initWithBlock:(IGFutureBlock)futureBlock {
+    if ([self initWithLazyBlock:futureBlock]) {
+        [self __force];
+    }
+    return self;
+}
+
+-(id) initWithLazyBlock:(IGFutureBlock)futureBlock {
+    // calling super is not needed for NSProxy
     if (self) {
         NSString* queueName = [NSString stringWithFormat:@"%@.%d", @"hk.ignition.future", [self hash]];
         _queue = dispatch_queue_create([queueName UTF8String], 0);
         _group = dispatch_group_create();
         _futureBlock = futureBlock;
-    }
-    return self;
-}
-
--(id) initWithBackgroundingBlock:(IGFutureBlock)futureBlock {
-    if ([self initWithBlock:futureBlock]) {
-        [self __force];
     }
     return self;
 }

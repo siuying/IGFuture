@@ -18,8 +18,14 @@ typedef id(^IGFutureBlock)(void);
     id _value;
 }
 
+// Create a future using a block
+// A future will start the work in a background queue asynchronously.
+// When the future is needed, and the task is completed, it is returned immediately.
+// If the task is not completed, it blocks and wait for finishes.
 -(id) initWithBlock:(IGFutureBlock)futureBlock;
--(id) initWithBackgroundingBlock:(IGFutureBlock)futureBlock;
--(id) __value;
+
+// Create a lazy future using a block.
+// A lazy future do not start its work until it is needed.
+-(id) initWithLazyBlock:(IGFutureBlock)futureBlock;
 
 @end
