@@ -14,7 +14,7 @@ This is highly experimental, so use it at your own risk!
 ```objective-c
 NSDate* now = [NSDate date];
 NSDate* later = (NSDate*) [[IGFuture alloc] initWithBlock:^id{
-    // something CPU intensive!
+    // perform some long running task
     [NSThread sleepForTimeInterval:1];
 
     // return the value
@@ -29,6 +29,24 @@ expect([later timeIntervalSinceDate:now]).to.beCloseToWithin(1, 0.01);
 2. If you want the future only calculate the results when it is needed, use ```-initWithLazyBlock:```.
 
 3. Note "later" which is a IGFuture object can be used as a NSDate (the returned value of the block).
+
+### Real(-ish) example
+
+```objective-c
+IGFuture* future = [[IGFuture alloc] initWithBlock:^id{
+    // perform some long running task
+    [NSThread sleepForTimeInterval:3.0];
+    return @[@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10"];
+}];
+
+future.completionBlock = ^(NSArray* data) {
+    self.data = data;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
+};
+```
 
 ### Usage
 

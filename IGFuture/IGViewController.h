@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IGViewController : UIViewController
+@interface IGViewController : UIViewController <UITableViewDataSource>
+
+@property (strong, nonatomic) NSArray* data;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
