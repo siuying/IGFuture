@@ -52,6 +52,51 @@ describe(@"IGFuture", ^{
             expect([middle timeIntervalSinceDate:now]).to.beCloseToWithin(kSleepTime, 0.005);
             expect([later timeIntervalSinceDate:middle]).to.beCloseToWithin(0, 0.005);
         });
+        
+        it(@"should only execute once", ^{
+            __block int x = 0;
+            NSDate* future = (NSDate*) [[IGFuture alloc] initWithBlock:^id{
+                x = x + 1;
+                return [NSDate date];
+            }];
+            [future timeIntervalSince1970];
+            [future timeIntervalSince1970];
+            expect(x).to.equal(1);
+        });
+        
+        describe(@"exception handling", ^{
+            it(@"should raise exceptions raised during execution when accessed", ^{
+                NSDate* future = (NSDate*) [[IGFuture alloc] initWithBlock:^id{
+                    [NSException raise:NSInvalidArgumentException
+                                format:@"test exception"];
+                    return [NSDate date];
+                }];
+                
+                expect(^{
+                    [future timeIntervalSince1970];
+                }).to.raiseWithReason(NSInvalidArgumentException, @"test exception");
+            });
+            
+            it(@"should only execute once when execptions are raised", ^{
+                __block int x = 0;
+                NSDate* future = (NSDate*) [[IGFuture alloc] initWithBlock:^id{
+                    x = x + 1;
+                    [NSException raise:NSInvalidArgumentException
+                                format:@"test exception"];
+                    return [NSDate date];
+                }];
+                
+                expect(^{
+                    [future timeIntervalSince1970];
+                }).to.raise(NSInvalidArgumentException);
+
+                expect(^{
+                    [future timeIntervalSince1970];
+                }).to.raise(NSInvalidArgumentException);
+
+                expect(x).to.equal(1);
+            });
+        });
     });
     
     describe(@"-setCompletionBlock:", ^{
@@ -76,6 +121,7 @@ describe(@"IGFuture", ^{
             expect(targetDate).toNot.beNil();
         });
     });
+    
 });
 
 SpecEnd

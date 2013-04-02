@@ -63,6 +63,11 @@
         [self __force];
     }
     dispatch_group_wait(_group, DISPATCH_TIME_FOREVER);
+    
+    if (_exception) {
+        [NSException raise:_exception.name format:@"%@", _exception.reason];
+    }
+
     return _value;
 }
 
@@ -71,7 +76,12 @@
 -(void) __force {
     _running = YES;
     dispatch_group_async(_group, _queue, ^{
-        _value = _futureBlock();
+        @try {
+            _value = _futureBlock();            
+        }
+        @catch (NSException *exception) {
+            _exception = exception;
+        }
 
         if (_completionBlock) {
             _completionBlock(_value);

@@ -17,6 +17,7 @@ typedef void(^IGFutureCompletionBlock)(id);
     BOOL _running;
     IGFutureBlock _futureBlock;
     IGFutureCompletionBlock _completionBlock;
+    NSException* _exception;
     id _value;
 }
 
