@@ -91,24 +91,20 @@
 
 #pragma mark - Proxy Magic
 
-// Reference: http://borkware.com/rants/agentm/elegant-delegation/
 -(NSMethodSignature*) methodSignatureForSelector:(SEL)selector {
     id target = [self __value];
-	NSMethodSignature *sig = [[target class] instanceMethodSignatureForSelector:selector];
-	if(!sig) {
-		sig = [NSMethodSignature signatureWithObjCTypes:"@^v^c"];
-	}
-	return sig;
+    if ([target respondsToSelector:selector]) {
+        return [target methodSignatureForSelector:selector];
+    }
+	return [super methodSignatureForSelector:selector];
 }
 
--(void) forwardInvocation:(NSInvocation *)anInvocation {
+-(void) forwardInvocation:(NSInvocation *)invocation {
     id target = [self __value];
-    if (target) {
-        if ([target respondsToSelector:[anInvocation selector]]) {
-            [anInvocation invokeWithTarget:target];
-        } else {
-            [super forwardInvocation:anInvocation];
-        }
+    if (target && [target respondsToSelector:[invocation selector]]) {
+        [invocation invokeWithTarget:target];
+    } else  {
+        [super forwardInvocation:invocation];
     }
 }
 
