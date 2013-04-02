@@ -53,6 +53,29 @@ describe(@"IGFuture", ^{
             expect([later timeIntervalSinceDate:middle]).to.beCloseToWithin(0, 0.005);
         });
     });
+    
+    describe(@"-setCompletionBlock:", ^{
+        it(@"run the completion block when the task is completed", ^{
+            __block NSDate* targetDate = nil;
+
+            IGFuture* later = [[IGFuture alloc] initWithBlock:^id{
+                [NSThread sleepForTimeInterval:kSleepTime];
+                return [NSDate date];
+            }];
+
+            // this is set after the future complete
+            later.completionBlock = ^(NSDate* date) {
+                targetDate = date;
+            };
+
+            // at this time the task is not completed yet
+            expect(targetDate).to.beNil();
+
+            // use `later` will force to wait until the task is completed
+            expect(([(NSDate*)later timeIntervalSince1970])).to.equal([targetDate timeIntervalSince1970]);
+            expect(targetDate).toNot.beNil();
+        });
+    });
 });
 
 SpecEnd

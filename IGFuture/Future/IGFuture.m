@@ -28,6 +28,14 @@
     return self;
 }
 
+-(IGFutureCompletionBlock)completionBlock {
+    return _completionBlock;
+}
+
+-(void)setCompletionBlock:(IGFutureCompletionBlock)block {
+    _completionBlock = block;
+}
+
 -(id) __value {
     if (!_running) {
         [self __force];
@@ -42,6 +50,10 @@
     _running = YES;
     dispatch_group_async(_group, _queue, ^{
         _value = _futureBlock();
+
+        if (_completionBlock) {
+            _completionBlock(_value);
+        }
     });
 }
 

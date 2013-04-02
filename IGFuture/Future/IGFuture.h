@@ -9,12 +9,14 @@
 #import <Foundation/Foundation.h>
 
 typedef id(^IGFutureBlock)(void);
+typedef void(^IGFutureCompletionBlock)(id);
 
 @interface IGFuture : NSProxy {
     dispatch_queue_t _queue;
     dispatch_group_t _group;
     BOOL _running;
     IGFutureBlock _futureBlock;
+    IGFutureCompletionBlock _completionBlock;
     id _value;
 }
 
@@ -27,5 +29,9 @@ typedef id(^IGFutureBlock)(void);
 // Create a lazy future using a block.
 // A lazy future do not start its work until it is needed.
 -(id) initWithLazyBlock:(IGFutureBlock)futureBlock;
+
+-(IGFutureCompletionBlock)completionBlock;
+
+-(void)setCompletionBlock:(IGFutureCompletionBlock)block;
 
 @end
