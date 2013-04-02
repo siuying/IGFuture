@@ -30,6 +30,14 @@ expect([later timeIntervalSinceDate:now]).to.beCloseToWithin(1, 0.01);
 
 3. Note "later" which is a IGFuture object can be used as a NSDate (the returned value of the block).
 
+### Usage
+
+In your ```Podfile```
+
+```
+pod 'IGFuture', :podspec => 'https://raw.github.com/siuying/IGFuture/master/IGFuture.podspec'
+```
+
 
 ### Copyright
 
